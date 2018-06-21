@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("students")
 public class StudentController {
 	@Autowired
-	StudentService StudentService;
+	StudentService studentService;
 	
 	@ModelAttribute
 	StudentForm setUpForm() {
@@ -24,22 +24,22 @@ public class StudentController {
 	}
 	@GetMapping
 	String list(Model model) {
-		model.addAttribute("Students", StudentService.findAll());
-		return "Students/list";
+		model.addAttribute("students", studentService.findAll());
+		return "students/add_stu";
 	}
 	@PostMapping(path="create")
-	String create(@Validated StudentForm form, BindingResult result,Model model) {
-		if(result.hasErrors()) {
-			return list(model);
-		}
-		StudentService.create(form);
-		return "redirect:/Students";
+	String create(StudentForm form,Model model) {
+//		if(result.hasErrors()) {
+//			return list(model);
+//		}
+		studentService.create(form);
+		return "redirect:/students";
 	}
 	@PostMapping(path = "edit", params = "form")
 	String editForm(@RequestParam Integer id, StudentForm form){
-		StudentForm StudentForm = StudentService.findOne(id);
-		BeanUtils.copyProperties(StudentForm,  form);
-		return "Students/edit";
+		StudentForm studentForm = studentService.findOne(id);
+		BeanUtils.copyProperties(studentForm,  form);
+		return "students/edit";
 	}
 	
 	@PostMapping(path = "edit")
@@ -47,19 +47,19 @@ public class StudentController {
 		if(result.hasErrors()) {
 			return editForm(id,form);
 		}
-		StudentService.update(form);
-		return "redirect:/Students";
+		studentService.update(form);
+		return "redirect:/students";
 	}
 	
 	@PostMapping(path = "delete")
 	String delete(@RequestParam Integer id){
-		StudentService.delete(id);
-		return "redirect:/Students";
+		studentService.delete(id);
+		return "redirect:/students";
 	}
 	
 	@PostMapping(path = "edit", params = "goToTop")
 	String goToTop() {
-		return "redirect:/Students";
+		return "redirect:/students";
 	}
 
 

@@ -18,7 +18,7 @@ public class StudentBean {
 	private String name;
 	private String address;
 	private String phone;
-	@ManyToOne
+//	@ManyToOne
 	private Integer grade_id;
 
 }
