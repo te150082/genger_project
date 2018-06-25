@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>生徒のアカウント登録</title>
+</head>
+<body>
+	<form th:action="@{/students/confirm}" method="post">
+		<table>
+			<tr><td>名前:</td><td><input type="text" name="title" /></td></tr>
+			<tr><td>電話番号：</td><td><input type="text" name="writer" /></td></tr>
+			<tr><td>住所：</td><td><input type="text" name="publisher" /></td></tr>
+			<tr><td>学年：</td><td><input type="text" name="price" /></td></tr>
+		</table>
+		<input type="submit" value = "作成"/>
+	</form>
+</body>
+</html>
