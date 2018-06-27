@@ -33,9 +33,12 @@ public class LectureController {
     }
     @RequestMapping(value="lecturers/confirm-lec", method=RequestMethod.POST)
     public ModelAndView postForm2(@RequestParam("name") String name, 
-    	    @RequestParam("phone") String phone,@RequestParam("address") String address, LectureForm form) {
-    	
-    	         //model.addAttribute("msg", form);
+    	    @RequestParam("phone") String phone,@RequestParam("address") String address, @RequestParam("subject") String[] subject, LectureForm form) {
+    	    
+    	         form.setName(name);
+    	         form.setPhone(phone);
+    	         form.setAddress(address);
+    	         form.setSubject(subject);
         
     	         ModelAndView mv = new ModelAndView("lecturers/confirm-lec");
     	         lectureService.save(new LectureBean(name, phone, address));
