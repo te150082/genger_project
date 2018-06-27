@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "student_table")
+@Table(name = "students")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,6 +19,6 @@ public class StudentBean {
 	private String address;
 	private String phone;
 //	@ManyToOne
-	private Integer grade_id;
+//	private Integer grade_id;
 
 }

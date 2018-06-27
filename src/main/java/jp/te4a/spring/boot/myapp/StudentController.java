@@ -23,7 +23,7 @@ public class StudentController {
 		return new StudentForm();
 	}
 	@GetMapping
-	String list(Model model) {
+	String add(Model model) {
 		model.addAttribute("students", studentService.findAll());
 		return "students/add_stu";
 	}
