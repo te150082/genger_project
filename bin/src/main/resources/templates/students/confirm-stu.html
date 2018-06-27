@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>確認画面</title>
+</head>
+<body>
+	<table>
+		<tr th:each="student : ${students}">
+			<td th:text="${student.name}">タイトルＡ</td>
+			<td th:text="${student.phone}">著者Ａ</td>
+			<td th:text="${student.address}">出版社Ａ</td>
+			<td th:text="${student.grade}">100</td>
+		</tr>
+	</table>
+</body>
+</html>
