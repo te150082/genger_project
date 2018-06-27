@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
+	@Autowired
+	StudentService studentService;
 	@RequestMapping("/")
 	String index(Model model) {
 		return "menu";
@@ -21,5 +23,10 @@ public class MainController {
 	@RequestMapping("schedule")
 	String schedule(Model model) {
 		return "schedule";
+	}
+	@RequestMapping("search")
+	String search(Model model) {
+//		model.addAttribute("students", studentService.fin);
+		return "search";
 	}
 }
