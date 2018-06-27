@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>講師のアカウント登録画面</title>
+    </head>
+    <body>
+        <form th:action="@{/lecturers/addlec-lec}" th:object="${lectureForm}" method="post">
+        <p>講師のアカウント登録画面</p>
+        <p>以下の内容で登録します。よろしければ「登録」ボタンを押してください。</p>
+            <table>
+                <tr><td>名前:</td><td><input type="text" th:value="${lectureForm.name}"></td></tr>
+                <tr><td>電話番号:</td><td><input type="text" th:value="${lectureForm.phone}"/></td></tr>
+                <tr><td>住所：</td><td><input type="text" th:value="${lectureForm.address}"/></td></tr>
+                <tr>
+                    <td>担当科目:</td>
+                    <div data-th-if="${value eq "国語"}">
+                        <td><input type="checkbox" name="subject" value="国語" th:value="${lectureForm.subject}"　checked>国語
+                    </div>
+                    <div data-th-if="${value neq "国語"}">
+                        <td><input type="checkbox" name="subject" value="国語" th:value="${lectureForm.subject}">国語
+                    </div>
+                    <div data-th-if="${value eq "算数"}">
+                        <td><input type="checkbox" name="subject" value="算数" th:value="${lectureForm.subject}"　checked>算数
+                    </div>
+                    <div data-th-if="${value neq "算数"}">
+                        <td><input type="checkbox" name="subject" value="算数" th:value="${lectureForm.subject}">算数
+                    </div>
+                    <div data-th-if="${value eq "理科"}">
+                        <td><input type="checkbox" name="subject" value="理科" th:value="${lectureForm.subject}"　checked>理科
+                    </div>
+                    <div data-th-if="${value neq "理科"}">
+                        <td><input type="checkbox" name="subject" value="理科" th:value="${lectureForm.subject}">理科
+                    </div>
+                    <div data-th-if="${value eq "社会"}">
+                        <td><input type="checkbox" name="subject" value="社会" th:value="${lectureForm.subject}"　checked>社会
+                    </div>
+                    <div data-th-if="${value neq "社会"}">
+                        <td><input type="checkbox" name="subject" value="社会" th:value="${lectureForm.subject}">社会
+                    </div>
+                    <div data-th-if="${value eq "英語"}">
+                        <td><input type="checkbox" name="subject" value="英語" th:value="${lectureForm.subject}"　checked>英語
+                    </div>
+                    <div data-th-if="${value neq "英語"}">
+                        <td><input type="checkbox" name="subject" value="英語" th:value="${lectureForm.subject}">英語
+                    </div><div data-th-if="${value eq "情報"}">
+                        <td><input type="checkbox" name="subject" value="情報" th:value="${lectureForm.subject}"　checked>情報
+                    </div>
+                    <div data-th-if="${value neq "情報"}">
+                        <td><input type="checkbox" name="subject" value="情報" th:value="${lectureForm.subject}">情報
+                    </div>
+                    if(value == "国語"){
+                    　　　　　　　　　　　　　　<td><input type="checkbox" name="subject" value="国語" th:value="${lectureForm.subject}"　checked>国語
+                    }else{
+                         <td><input type="checkbox" name="subject" value="国語" th:value="${lectureForm.subject}">国語
+                    }
+                    if(value == "算数"){
+                    　　　　　　　　　　　　　　<input type="checkbox" name="subject" value="算数" th:value="${lectureForm.subject}"　checked>算数
+                    }
+                    else{
+                         <input type="checkbox" name="subject" value="算数" th:value="${lectureForm.subject}">算数
+                    }
+                    if(value == "理科"){
+                         <input type="checkbox" name="subject" value="理科" th:value="${lectureForm.subject}" checked>理科
+                    }
+                    else{
+                         <input type="checkbox" name="subject" value="理科" th:value="${lectureForm.subject}">理科
+                    }if(value == "社会"){
+                         <input type="checkbox" name="subject" value="社会" th:value="${lectureForm.subject}" checked>社会
+                    }
+                    else{
+                         <input type="checkbox" name="subject" value="社会" th:value="${lectureForm.subject}">社会
+                    }if(value == "英語"){
+                         <input type="checkbox" name="subject" value="英語" th:value="${lectureForm.subject}" checked>英語
+                    }
+                    else{
+                         <input type="checkbox" name="subject" value="英語" th:value="${lectureForm.subject}">英語
+                    }if(value == "情報"){
+                         <input type="checkbox" name="subject" value="情報" th:value="${lectureForm.subject}" checked>情報</td>
+                    }
+                    else{
+                         <input type="checkbox" name="subject" value="情報" th:value="${lectureForm.subject}">情報</td>
+                    }
+                </tr>
+           </table>
+       <button type="submit">次へ</button>
+       </form>
+    </body>
+</html>
+    
