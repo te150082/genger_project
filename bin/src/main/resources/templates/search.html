@@ -1,2 +1,36 @@
-aaaaa
-bbbbb
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>アカウント検索</title>
+<script type="text/javascript">
+	function getdata(){
+        if(window.location.search){
+            /* URLの「?」以降のパラメータを変数nに代入 */
+            var n=window.location.search.substring(1,window.location.search.length);
+            if(n === )
+            /* テキストボックスにパラメータを表示 */
+            document.getElementById("page").appendChild(n);
+        }
+    }
+    /* オンロード時に実行 */
+    window.onload=getdata;
+</script>
+</head>
+<body>
+	<p id="page"></p>
+	<form th:action="@{/search}">
+		<p>
+			名前:<input type="text" name="name" />
+			<input type="submit" value = "検索"/>
+		</p>
+	</form>
+	<table>
+		<tr th:each="students : ${students}">
+			<td th:text="${students.name}">名前Ａ</td>
+			<td th:text="${students.address}">住所Ａ</td>
+			<td th:text="${students.phone}">電話番号Ａ</td>
+		</tr>
+	</table>
+</body>
+</html>

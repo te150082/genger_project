@@ -5,12 +5,12 @@
 	<title>生徒のアカウント登録</title>
 </head>
 <body>
-	<form th:action="@{/students/confirm}" method="post">
+	<form th:action="@{/students/create}" method="post">
 		<table>
-			<tr><td>名前:</td><td><input type="text" name="title" /></td></tr>
-			<tr><td>電話番号：</td><td><input type="text" name="writer" /></td></tr>
-			<tr><td>住所：</td><td><input type="text" name="publisher" /></td></tr>
-			<tr><td>学年：</td><td><input type="text" name="price" /></td></tr>
+			<tr><td>名前:</td><td><input type="text" name="name" /></td></tr>
+			<tr><td>住所：</td><td><input type="text" name="address" /></td></tr>
+			<tr><td>電話番号：</td><td><input type="text" name="phone" /></td></tr>
+			<tr><td>学年：</td><td><select name="grade"><option value="2">低学年</option><option value="1">中学年</option><option value="3">高学年</option></select></td></tr>
 		</table>
 		<input type="submit" value = "作成"/>
 	</form>

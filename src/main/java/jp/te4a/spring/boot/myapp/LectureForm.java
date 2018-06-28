@@ -8,5 +8,5 @@ public class LectureForm  {
 	String name;
 	String phone;
 	String address;
-	String[] subject;
+	String[] check;
 }
