@@ -6,23 +6,23 @@
         <title>講師のアカウント登録画面</title>
     </head>
     <body>
-        <form th:action="@{/lectures/confirm-lec}" th:object="${lectureForm}" method="post">
+        <form th:action="@{/lectures/create}" th:object="${LectureForm}" method="post">
         <p>講師のアカウント登録画面</p>
             <table>
-                <tr><td>名前:</td><td><input type="text" name="name"/></td></tr>
-                <tr><td>電話番号:</td><td><input type="text" name="phone"/></td></tr>
-                <tr><td>住所：</td><td><input type="text" name="address"/></td></tr>
+                <tr><td>名前:</td><td><input type="text" name="name" /></td></tr>
+                <tr><td>電話番号:</td><td><input type="text" name="phone" /></td></tr>
+                <tr><td>住所：</td><td><input type="text" name="address" /></td></tr>
                 <tr>
                     <td>担当科目:</td>
-                    <td><input type="checkbox" name="subject" checked>国語
-                    <input type="checkbox" name="subject" checked>算数
-                    <input type="checkbox" name="subject" checked>理科
-                    <input type="checkbox" name="subject" checked>社会
-                    <input type="checkbox" name="subject" checked>英語
-                    <input type="checkbox" name="subject" checked>情報</td>
+                    <td><input type="checkbox" name="subject" value="国語" checked>国語
+                    <input type="checkbox" name="subject" value="算数" checked>算数
+                    <input type="checkbox" name="subject" value="理科" checked>理科
+                    <input type="checkbox" name="subject" value="社会" checked>社会
+                    <input type="checkbox" name="subject" value="英語" checked>英語
+                    <input type="checkbox" name="subject" value="情報" checked>情報</td>
                 </tr>
            </table>
-       <button type="submit">次へ</button>
+       <input type="submit" value = "次へ"/>
        </form>
     </body>
 </html>

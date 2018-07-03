@@ -1,12 +1,19 @@
 package jp.te4a.spring.boot.myapp;
 
-import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.Size;
+
 import lombok.Data;
 @Data
-@AllArgsConstructor
+@NoArgsConstructor
 public class LectureForm  {
-	String name;
-	String phone;
-	String address;
-	String[] check;
+	private Integer id;
+	@Size(max = 60)
+	private String name;
+	@Size(max = 255)
+	private String address;
+	@Size(max = 30)
+	private String phone;
+	private Integer grade_id;
 }
