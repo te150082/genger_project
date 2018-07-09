@@ -28,6 +28,7 @@ public class LectureController {
     	return "lectures/add";
     }
     
+    
     @PostMapping(path="create")
     String create (LectureForm form,Model model){
     	
