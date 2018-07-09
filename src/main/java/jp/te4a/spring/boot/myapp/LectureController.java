@@ -1,46 +1,51 @@
 package jp.te4a.spring.boot.myapp;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("lectures")
 public class LectureController {
-    @Autowired
-    LectureService lectureService;
-    @RequestMapping("lectures")
-    public String index(Model model) {
-        model.addAttribute("msg", "this is setting message");
-        return "lectures/add-lec";
-    }
-    @RequestMapping(value="lectures/add-lec", method=RequestMethod.POST)
-     public ModelAndView postForm(@RequestParam("name") String name, 
-    @RequestParam("phone") String phone,@RequestParam("address") String address) {
-         ModelAndView mv = new ModelAndView("lectures/add-lec");
-         lectureService.save(new LectureBean(name, phone, address));
-         // TODO:DEBUG
-         //List<LectureBean> a = new List();
-         // mv.addObject("lectures", a);
-         mv.addObject("lectures", lectureService.findAll());
-         return mv;
-    }
-    @RequestMapping(value="lectures/confirm-lec", method=RequestMethod.POST)
-    public ModelAndView postForm2(@RequestParam("name") String name, 
-    	    @RequestParam("phone") String phone,@RequestParam("address") String address, LectureForm form) {
-    	         form.setName(name);
-    	         form.setPhone(phone);
-    	         form.setAddress(address);
-    	         ModelAndView mv = new ModelAndView("lectures/confirm-lec");
-    	         lectureService.save(new LectureBean(name, phone, address));
-    	         // TODO:DEBUG
-    	         //List<LectureBean> a = new List();
-    	         // mv.addObject("lectures", a);
-    	         mv.addObject("lectures", lectureService.findAll());
-    	         return mv;
-    	    }
     
+	@Autowired
+    LectureService lectureService;
+    
+	@ModelAttribute
+	LectureForm setUpForm() {
+		return new LectureForm();
+	}
+	
+    @GetMapping
+    String add(Model model) {
+        return "lectures/add";
+    }
+    @PostMapping
+    String conf(Model model) {
+    	return "lectures/add";
+    }
+    
+    
+    @PostMapping(path="create")
+    String create (LectureForm form,Model model){
+    	
+    	String[] param = form.getSubject();
+    	String[] param2 = {"", "", "", "", "", ""};
+    	
+    	for(int i = 0; param != null && i < param.length; i++) {
+    	    if(param[i].equals("0")) param2[0] = "0";
+    	    else if(param[i].equals("1"))param2[1] = "1";
+    	    else if(param[i].equals("2"))param2[2] = "2";
+    	    else if(param[i].equals("3"))param2[3] = "3";
+    	    else if(param[i].equals("4"))param2[4] = "4";
+    	    else if(param[i].equals("5"))param2[5] = "5";
+    	}
+        form.setSubject(param2); 
+    	lectureService.create(form);
+    	return "lectures/confirm";
+        //return "redirect:/lectures";
+    }
 }
