@@ -24,9 +24,4 @@ public class MainController {
 	String schedule(Model model) {
 		return "schedule";
 	}
-	@RequestMapping("search")
-	String search(Model model) {
-//		model.addAttribute("students", studentService.fin);
-		return "search";
-	}
 }
