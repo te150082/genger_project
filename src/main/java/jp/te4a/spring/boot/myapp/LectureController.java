@@ -28,6 +28,11 @@ public class LectureController {
     	return "lectures/add";
     }
     
+    @PostMapping(path="edit")
+    String edi(Model model) {
+    	return "lectures/edit";
+    }
+    
     
     @PostMapping(path="create")
     String create (LectureForm form,Model model){
