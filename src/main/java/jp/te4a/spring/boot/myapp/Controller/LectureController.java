@@ -1,4 +1,4 @@
-package jp.te4a.spring.boot.myapp;
+package jp.te4a.spring.boot.myapp.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import jp.te4a.spring.boot.myapp.Form.LectureForm;
+import jp.te4a.spring.boot.myapp.Service.LectureService;
 
 @Controller
 @RequestMapping("lectures")
@@ -23,16 +26,16 @@ public class LectureController {
     String add(Model model) {
         return "lectures/add";
     }
+    
     @PostMapping
-    String conf(Model model) {
+    String adds(Model model) {
     	return "lectures/add";
     }
     
     @PostMapping(path="edit")
-    String edi(Model model) {
+    String edit(Model model) {
     	return "lectures/edit";
     }
-    
     
     @PostMapping(path="create")
     String create (LectureForm form,Model model){

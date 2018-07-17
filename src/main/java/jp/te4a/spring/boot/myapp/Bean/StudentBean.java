@@ -1,4 +1,4 @@
-package jp.te4a.spring.boot.myapp;
+package jp.te4a.spring.boot.myapp.Bean;
 
 import javax.persistence.*;
 

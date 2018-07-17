@@ -1,4 +1,4 @@
-package jp.te4a.spring.boot.myapp;
+package jp.te4a.spring.boot.myapp.Form;
 
 import javax.validation.constraints.Size;
 
@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class StudentForm {
 	private Integer id;
-	@Size(max = 63)
+	@Size(max = 60)
 	private String name;
 	@Size(max = 255)
 	private String address;
-	@Size(max = 31)
+	@Size(max = 30)
 	private String phone;
 	private Integer grade_id;
 

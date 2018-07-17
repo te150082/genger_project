@@ -1,4 +1,4 @@
-package jp.te4a.spring.boot.myapp;
+package jp.te4a.spring.boot.myapp.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,10 @@ import java.util.Optional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import jp.te4a.spring.boot.myapp.Bean.LectureBean;
+import jp.te4a.spring.boot.myapp.Form.LectureForm;
+import jp.te4a.spring.boot.myapp.Repository.LectureRepository;
 
 @Service
 public class LectureService {
@@ -50,5 +54,15 @@ public class LectureService {
 			
 		});
 		return lectureForm;
+	}
+	public List<LectureForm> findByname(String name) {
+		List<LectureBean> beanList = lectureRepository.findByName(name);
+		List<LectureForm> formList = new ArrayList<LectureForm>();
+		for(LectureBean lectureBean:beanList){
+			LectureForm lectureForm = new LectureForm();
+			BeanUtils.copyProperties(lectureBean, lectureForm);
+			formList.add(lectureForm);
+		}
+		return formList;
 	}
 }

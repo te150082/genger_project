@@ -1,5 +1,4 @@
-package jp.te4a.spring.boot.myapp;
-import lombok.NoArgsConstructor;
+package jp.te4a.spring.boot.myapp.Bean;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,16 +7,17 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
-@Table(name = "lectures")
+@Table(name = "Subjects")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LectureBean  {
+public class SubjectsBean {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	private String name;
-	private String phone;
-	private String address;
+	private String grade;
+	private String subject;
 }

@@ -2,24 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link rel=“stylesheet” type=“text/css” href="../static/css/style.css" th:href="@{/css/style.css}"/>
 <title>アカウント検索</title>
-<script type="text/javascript">
-	function getdata(){
-        if(window.location.search){
-            /* URLの「?」以降のパラメータを変数nに代入 */
-            var n=window.location.search.substring(1,window.location.search.length);
-            if(n === )
-            /* テキストボックスにパラメータを表示 */
-            document.getElementById("page").appendChild(n);
-        }
-    }
-    /* オンロード時に実行 */
-    window.onload=getdata;
-</script>
 </head>
 <body>
 	<p id="page"></p>
-	<form th:action="@{/search}">
+			<form th:action="@{/search/research}">
 		<p>
 			名前:<input type="text" name="name" />
 			<input type="submit" value = "検索"/>
@@ -27,10 +15,32 @@
 	</form>
 	<table>
 		<tr th:each="students : ${students}">
-			<td th:text="${students.name}">名前Ａ</td>
-			<td th:text="${students.address}">住所Ａ</td>
-			<td th:text="${students.phone}">電話番号Ａ</td>
+			<td th:text="${students.name}">生徒名前</td>
+			<td th:text="${students.address}">生徒住所</td>
+			<td th:text="${students.phone}">生徒電話番号</td>
+			
+			<td><input type="submit" name="form" value="編集"/>	
+			<input type="submit" name="form" value="削除"/>
+			
+			<form th:action="@{/schedule}" method="post">
+				<input type="submit" name="form" value="時間割印刷"/>
+				<input type="hidden" name="id" th:value="${students.id}"/>
+			</form>
+		</tr>		
+		<tr th:each="lectures : ${lectures}">
+			<td th:text="${lectures.name}">講師名前</td>
+			<td th:text="${lectures.address}">講師住所</td>
+			<td th:text="${lectures.phone}">講師電話番号</td>
+			
+			<form th:action="@{/lectures/edit}" method="post">
+			   <td>
+			       <input type="submit" name="form" value="編集"/>
+			       <input type="submit" name="form" value="削除"/>
+	           </td>
+			</form>
+			
 		</tr>
+		
 	</table>
 </body>
 </html>
