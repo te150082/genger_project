@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import jp.te4a.spring.boot.myapp.Bean.ScheduleBean;
 
 public interface ScheduleRepository extends JpaRepository<ScheduleBean, Integer>{
-
+	
 }

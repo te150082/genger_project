@@ -1,5 +1,7 @@
 package jp.te4a.spring.boot.myapp.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
@@ -22,7 +24,17 @@ public class ScheduleService {
 		opt.ifPresent(schedule ->{
 			BeanUtils.copyProperties(schedule, scheduleForm);
 		});
-		System.out.println(scheduleForm);
 		return scheduleForm;
     }
+	public List<ScheduleForm> findAll(){
+		List<ScheduleBean> beanList = ScheduleRepository.findAll();
+		List<ScheduleForm> formList = new ArrayList<ScheduleForm>();
+		for(ScheduleBean ScheduleBean:beanList){
+			ScheduleForm scheduleForm = new ScheduleForm();
+			BeanUtils.copyProperties(ScheduleBean, scheduleForm);
+			formList.add(scheduleForm);
+		}
+		return formList;
+	}
+    
 }

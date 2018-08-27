@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jp.te4a.spring.boot.myapp.Bean.StudentBean;
 import jp.te4a.spring.boot.myapp.Form.StudentForm;
@@ -29,13 +30,12 @@ public class StudentService {
 		studentRepository.save(studentBean);
 		return studentForm;
 	}
-	
-	public void delete(Integer id){
-		StudentBean b = new StudentBean();
-		b.setId(id);
-		studentRepository.delete(b);
+
+	public void delete(@RequestParam Integer id) {		 
+		  StudentBean studentBean = new StudentBean();
+		  studentBean.setId(id);
+		  studentRepository.delete(studentBean);
 	}
-	
 	public List<StudentForm> findAll(){
 		List<StudentBean> beanList = studentRepository.findAll();
 		List<StudentForm> formList = new ArrayList<StudentForm>();

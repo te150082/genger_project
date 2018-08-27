@@ -5,9 +5,7 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import lombok.Data;
 @Data
 @NoArgsConstructor
 public class LectureForm  {

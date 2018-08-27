@@ -14,12 +14,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import jp.te4a.spring.boot.myapp.Form.StudentForm;
 import jp.te4a.spring.boot.myapp.Service.StudentService;
+import jp.te4a.spring.boot.myapp.Service.TimeStudentService;
+
 
 @Controller
 @RequestMapping("students")
 public class StudentController {
 	@Autowired
 	StudentService studentService;
+	@Autowired
+	TimeStudentService timeStudentService;
 	
 	@ModelAttribute
 	StudentForm setUpForm() {
@@ -28,15 +32,17 @@ public class StudentController {
 	@GetMapping
 	String add(Model model) {
 		model.addAttribute("students", studentService.findAll());
-		return "students/add_stu";
+		return "students/add";
 	}
 	@PostMapping(path="create")
 	String create(StudentForm form,Model model) {
-//		if(result.hasErrors()) {
-//			return list(model);
-//		}
 		studentService.create(form);
 		return "redirect:/students";
+	}
+	@PostMapping(path="recreate")
+	String recreate(Model model,@RequestParam Integer id) {
+	      model.addAttribute("students",studentService.findOne(id));
+		return "students/edit";
 	}
 	@PostMapping(path = "edit", params = "form")
 	String editForm(@RequestParam Integer id, StudentForm form){
@@ -51,19 +57,19 @@ public class StudentController {
 			return editForm(id,form);
 		}
 		studentService.update(form);
-		return "redirect:/students";
+		return "redirect:/search_students";
 	}
 	
 	@PostMapping(path = "delete")
-	String delete(@RequestParam Integer id){
+	String delete(@RequestParam Integer id, StudentForm form){
+		System.out.println("param:"+id);
+		timeStudentService.delete(id);
 		studentService.delete(id);
-		return "redirect:/students";
+		return "redirect:/search_students";
 	}
 	
 	@PostMapping(path = "edit", params = "goToTop")
 	String goToTop() {
 		return "redirect:/students";
 	}
-
-
 }

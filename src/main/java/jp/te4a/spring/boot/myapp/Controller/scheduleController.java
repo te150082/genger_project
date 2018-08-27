@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import jp.te4a.spring.boot.myapp.Service.ScheduleService;
 import jp.te4a.spring.boot.myapp.Service.StudentService;
 
+
 @Controller
 @RequestMapping("schedule")
 public class scheduleController {
@@ -23,7 +24,8 @@ public class scheduleController {
 	@PostMapping
     String list(@RequestParam Integer id,Model model) {
       model.addAttribute("students", studentService.findOne(id));
-      model.addAttribute("schedule", scheduleService.findOne(id));
+      model.addAttribute("schedule", scheduleService.findAll());
+      System.out.println(model);
       return "schedule.html";
     }
 	
