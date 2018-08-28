@@ -32,7 +32,6 @@ public class searchController_lectures {
     String one(@RequestParam String name,Model model) {
       model.addAttribute("value",1);
       model.addAttribute("lectures", lectureService.findByname(name));
-      System.out.println(name);
       return "/search";
     }
 }

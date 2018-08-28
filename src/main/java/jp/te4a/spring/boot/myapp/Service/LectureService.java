@@ -51,7 +51,6 @@ public class LectureService {
 		LectureForm lectureForm = new LectureForm();
 		opt.ifPresent(lecture ->{
 			BeanUtils.copyProperties(lecture, lectureForm);
-			
 		});
 		return lectureForm;
 	}

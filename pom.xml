@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>jp.te4a.spring.boot</groupId>
-	<artifactId>genger_project</artifactId>
+	<artifactId>genger_project1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>genger_project</name>
+	<name>genger_project1</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>

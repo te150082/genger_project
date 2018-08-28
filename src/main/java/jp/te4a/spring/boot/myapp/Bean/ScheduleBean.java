@@ -1,7 +1,9 @@
 package jp.te4a.spring.boot.myapp.Bean;
 
+
 import java.sql.Date;
 import java.sql.Time;
+
 
 import javax.persistence.*;
 
@@ -16,13 +18,17 @@ import lombok.ToString;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ScheduleBean {
+public class ScheduleBean  {
+	
+//	@EmbeddedId
 	@Id
-	@GeneratedValue
-	private Integer id;
+	@Column(name="id")
+	private Integer timeId;
+//	private Integer id;
 	private Date date;
 	private Time time;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private RoomBean room;
-	private Integer subject_id;;
+	@Column(name="subject_id")
+	private Integer subjectid;
 }
