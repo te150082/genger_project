@@ -34,6 +34,11 @@ public class StudentController {
 		model.addAttribute("students", studentService.findAll());
 		return "students/add";
 	}
+	@PostMapping(path="add_subjects")
+	String add_subjects(Model model,@RequestParam Integer id) {
+	      model.addAttribute("students",studentService.findOne(id));
+		return "/subjects/add.html";
+	}
 	@PostMapping(path="create")
 	String create(StudentForm form,Model model) {
 		studentService.create(form);

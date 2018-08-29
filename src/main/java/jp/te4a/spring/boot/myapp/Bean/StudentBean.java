@@ -14,9 +14,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class StudentBean {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
 	private String address;
 	private String phone;
-	//private Integer grade_id;
+	private Integer grade_year;
 }
