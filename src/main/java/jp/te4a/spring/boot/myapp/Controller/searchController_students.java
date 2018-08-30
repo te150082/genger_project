@@ -40,12 +40,23 @@ public class searchController_students {
       model.addAttribute("value",2);
       return "/search";
     }
-	
+	@GetMapping("/research_schedule")
+    String one_sch(@RequestParam String name,Model model) {
+      model.addAttribute("students", studentService.findByname(name));
+      model.addAttribute("value",3);
+      return "/search";
+    }
 	@GetMapping("/subjects")
     String subjects(Model model) {
       model.addAttribute("students", studentService.findAll());
       model.addAttribute("value",2);
       return "/search";
+    }
+	@GetMapping("/schedule")
+    String schedule(Model model) {
+      model.addAttribute("students", studentService.findAll());
+      model.addAttribute("value",3);
+      return "/search.html";
     }
 	@RequestMapping("search")
     public String index(Model model) {

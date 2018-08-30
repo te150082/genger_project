@@ -15,5 +15,5 @@ public class StudentForm {
 	private String address;
 	@Size(max = 30)
 	private String phone;
-	private Integer grade_id;
+	private Integer grade_year;
 }

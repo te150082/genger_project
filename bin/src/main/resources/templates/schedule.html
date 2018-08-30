@@ -61,8 +61,7 @@
     <p >X月教室予約 
 	<p th:each="students : ${students}">
 	<p class="name" th:text="${students.name}">AAA
-	<p th:each="schedule : ${schedule}">
-	<p class="name" th:text="${schedule}">
+	
         <input type="button" class="print" value="このページを印刷する" onclick="window.print();" />
         <table id="calendar1">
             <tr><th class="space"></th>
