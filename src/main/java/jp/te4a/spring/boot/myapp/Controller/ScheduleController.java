@@ -14,7 +14,7 @@ import jp.te4a.spring.boot.myapp.Service.StudentService;
 
 @Controller
 @RequestMapping("schedule")
-public class scheduleController {
+public class ScheduleController {
 	
 	@Autowired
 	StudentService studentService;
@@ -28,6 +28,4 @@ public class scheduleController {
       System.out.println(model);
       return "schedule.html";
     }
-	
-	
 }
