@@ -12,7 +12,7 @@ import jp.te4a.spring.boot.myapp.Service.TimeStudentService;
 
 @Controller
 @RequestMapping("search_students")
-public class searchController_students {
+public class SearchController_students {
 	
 	@Autowired
 	StudentService studentService;

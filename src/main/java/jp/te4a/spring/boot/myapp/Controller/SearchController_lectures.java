@@ -12,7 +12,7 @@ import jp.te4a.spring.boot.myapp.Service.LectureService;
 
 @Controller
 @RequestMapping("search_lectures")
-public class searchController_lectures {
+public class SearchController_lectures {
 	
 	@Autowired
     LectureService lectureService;

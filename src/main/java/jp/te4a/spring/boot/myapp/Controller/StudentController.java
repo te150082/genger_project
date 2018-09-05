@@ -1,5 +1,6 @@
 package jp.te4a.spring.boot.myapp.Controller;
 
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,7 +37,15 @@ public class StudentController {
 	}
 	@PostMapping(path="add_subjects")
 	String add_subjects(Model model,@RequestParam Integer id) {
-	      model.addAttribute("students",studentService.findOne(id));
+	    model.addAttribute("students",studentService.findOne(id));
+		return "/subjects/add.html";
+	}
+	@PostMapping(path="create_schedule")
+	String create_schedule(Model model,@RequestParam Integer id,@RequestParam String week) {
+	    model.addAttribute("students",studentService.findOne(id));
+//=====================================DEBUG1===============================================
+	    System.out.println("weeklength:" + week.length());
+//====================================DEBUG1_END=============================================
 		return "/subjects/add.html";
 	}
 	@PostMapping(path="create")
@@ -62,6 +71,10 @@ public class StudentController {
 			return editForm(id,form);
 		}
 		studentService.update(form);
+		return "redirect:/search_students";
+	}
+	@PostMapping(path="nextyear")
+	String nextyear() {
 		return "redirect:/search_students";
 	}
 	
