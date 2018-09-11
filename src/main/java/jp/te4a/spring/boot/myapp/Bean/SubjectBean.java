@@ -14,10 +14,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SubjectsBean {
+public class SubjectBean {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	private String grade;
+	private String grade_id;
 	private String subject;
 }
