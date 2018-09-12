@@ -13,7 +13,7 @@ import lombok.Data;
 public class SubjectForm  {
 	private Integer id;
 	@Size(max = 60)
-	private String grade_id;
+	private String grade;
 	private String subject;
 	
 }

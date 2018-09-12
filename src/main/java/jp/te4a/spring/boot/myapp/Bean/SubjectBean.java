@@ -18,6 +18,6 @@ public class SubjectBean {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	private String grade_id;
+	private String grade;
 	private String subject;
 }
