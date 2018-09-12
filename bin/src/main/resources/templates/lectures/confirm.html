@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>講師のアカウント登録画面</title>
+    </head>
+    <body>
+        <form th:action="@{/lectures}" th:object="${lectureForm}" method="post">
+        <p>講師のアカウント登録画面</p>
+        <p>以下の内容で登録します。よろしければ「登録」ボタンを押してください。</p>
+            <table>
+                <tr><td>名前:</td><td><input type="text" th:field="*{name}"></td></tr>
+                <tr><td>電話番号:</td><td><input type="text" th:field="*{phone}"/></td></tr>
+                <tr><td>住所：</td><td><input type="text" th:field="*{address}"/></td></tr>
+                <tr>
+                    <td>担当科目:</td>
+                    <td><input type="checkbox" th:if= "${lectureForm.subject[0].equals('0')}"checked>
+                    <input type="checkbox" th:if= "${lectureForm.subject[0].equals('')}">国語
+                    <input type="checkbox" th:if= "${lectureForm.subject[1].equals('1')}"checked>
+                    <input type="checkbox" th:if= "${lectureForm.subject[1].equals('')}">算数
+                    <input type="checkbox" th:if= "${lectureForm.subject[2].equals('2')}"checked>
+                    <input type="checkbox" th:if= "${lectureForm.subject[2].equals('')}">理科
+                    <input type="checkbox" th:if= "${lectureForm.subject[3].equals('3')}"checked>
+                    <input type="checkbox" th:if= "${lectureForm.subject[3].equals('')}">社会
+                    <input type="checkbox" th:if= "${lectureForm.subject[4].equals('4')}"checked>
+                    <input type="checkbox" th:if= "${lectureForm.subject[4].equals('')}">英語
+                    <input type="checkbox" th:if= "${lectureForm.subject[5].equals('5')}"checked>
+                    <input type="checkbox" th:if= "${lectureForm.subject[5].equals('')}">情報</td>
+                </tr>
+           </table>
+          <button type="submit">登録</button>
+       </form>
+    </body>
+</html>
+    

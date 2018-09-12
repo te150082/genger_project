@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>教室予約システム</title>
-	<link rel=“stylesheet” type=“text/css” href="/css/style.css" th:href="@{/css/style.css}"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
 </head>
 <body>
 <header>
@@ -12,30 +12,26 @@
 <section>
 	<h1 class="h1">教室予約システム</h1>
 	<ul class="nav">
-		<li><a href="search?page=subjects">1_生徒の受講科目入力</a>
-		</li>
-		<li><a href="search?page=works">2_講師の出勤日時入力</a>
-		</li>
-		<li><a>3_アカウント管理</a>
-			<ul>
-				<li><a>生徒</a>			
-					<ul>
-						<li><a href="students">登録</a>
-						<li><a href="search?page=edit-stu">変更と削除</a></li>
-						</li>
-					</ul>
-				</li>
-				<li><a>講師</a>			
-					<ul>
-						<li><a href="lectures">登録</a>
-						<li><a href="search?page=edit-lec">変更と削除</a></li>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</li>
-		<li><a href="search?page=schedule">4_時間割の表示と印刷</a></li>
-		<!--nav--></ul>
+		<li><a href="search_students/subjects">1_生徒の受講科目入力</a></li>
+		<li><a href="search?page=works">2_講師の出勤日時入力</a></li>
+			<li><a>3_アカウント管理</a>
+				<ul>
+					<li><a>生徒</a>			
+						<ul>
+							<li><a href="students">登録</a></li>
+							<li><a href="search_students">変更と削除</a></li>
+						</ul>
+					</li>
+					<li><a>講師</a>			
+						<ul>
+							<li><a href="lectures">登録</a></li>
+							<li><a href="search_lectures">変更と削除</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		<li><a href="search_students/schedule">4_時間割の表示と印刷</a></li>
+	</ul>
 		<div class="content">
 		<p>1番で生徒の希望している科目を入力して下さい</p>
 		<p>2番で講師の希望している出勤日時を入力して下さい</p>
