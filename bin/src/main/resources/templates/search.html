@@ -8,6 +8,7 @@
 <body>
 	<th:block>
 	<div th:if="${value == 0}">
+		<h1>生徒編集削除画面</h1>
 		<form th:action="@{/search_students/research}">
 		<p>
 			名前:<input type="text" name="name" />
@@ -15,17 +16,26 @@
 		</p>
 		</form>
 		<table>
+			<tr><th>名前</th><th>住所</th><th>電話番号</th><th>学年</th></tr>
 			<tr th:each="students : ${students}">
-			<td>名前:</td><td th:text="${students.name}">生徒名前</td>
-			<td>住所:</td><td th:text="${students.address}">生徒住所</td>
-			<td>電話番号:</td><td th:text="${students.phone}">生徒電話番号</td>
-			
+			<td th:text="${students.name}">生徒名前</td>
+			<td th:text="${students.address}">生徒住所</td>
+			<td th:text="${students.phone}">生徒電話番号</td>
+			<td th:switch="${students.grade_year}">
+			<p th:case = "1" th:text="低学年"></p>
+			<p th:case = "2" th:text="低学年"></p>
+			<p th:case = "3" th:text="中学年"></p>
+			<p th:case = "4" th:text="中学年"></p>
+			<p th:case = "5" th:text="高学年"></p>
+			<p th:case = "6" th:text="高学年"></p>
+			</td>
 			<td>
 			<form th:action="@{/students/recreate}" method="post">
 			<input type="submit" name="form" value="編集"/>	
 			<input type="hidden" name="id" th:value="${students.id}"/>
 			</form>
-			
+			</td>
+			<td>
 			<form th:action="@{/students/delete}" method="post">
 			<input type="submit" name="form" value="削除"/>
 			<input type="hidden" name="id" th:value="${students.id}"/>
@@ -36,6 +46,7 @@
 	</div>
 	
 	<div th:if="${value == 1}">
+		<h1>講師編集削除画面</h1>
 		<form th:action="@{/search_lectures/research}">
 		<p>
 			名前:<input type="text" name="name" />
@@ -55,6 +66,7 @@
 	</div>
 	
 	<div th:if="${value == 2}">
+		<h1>受講生徒検索画面</h1>
 		<form th:action="@{/search_students/research_subjects}">
 		<p>
 			名前:<input type="text" name="name" />
@@ -62,13 +74,22 @@
 		</p>
 		</form>
 		<table>
+			<tr><th>名前</th><th>住所</th><th>電話番号</th><th>学年</th><th>入力状況</th></tr>
 			<tr th:each="students : ${students}">
-			<td>名前:</td><td th:text="${students.name}">生徒名前</td>
-			<td>住所:</td><td th:text="${students.address}">生徒住所</td>
-			<td>電話番号:</td><td th:text="${students.phone}">生徒電話番号</td>
-			
+			<td th:text="${students.name}">生徒名前</td>
+			<td th:text="${students.address}">生徒住所</td>
+			<td th:text="${students.phone}">生徒電話番号</td>
+			<td th:switch="${students.grade_year}">
+			<p th:case = "1" th:text="低学年"></p>
+			<p th:case = "2" th:text="低学年"></p>
+			<p th:case = "3" th:text="中学年"></p>
+			<p th:case = "4" th:text="中学年"></p>
+			<p th:case = "5" th:text="高学年"></p>
+			<p th:case = "6" th:text="高学年"></p>
+			</td>
+			<td th:text="入力済"/>
 			<td>
-			<form th:action="@{/schedule}" method="post">
+			<form th:action="@{/students/add_subjects}" method="post">
 			<input type="submit" name="form" value="受講入力"/>
 			<input type="hidden" name="id" th:value="${students.id}"/>
 			</form>
@@ -77,6 +98,7 @@
 		</table>
 	</div>
 		<div th:if="${value == 3}">
+		<h1>時間割検索画面</h1>
 		<form th:action="@{/search_students/research_schedule}">
 		<p>
 			名前:<input type="text" name="name" />
@@ -84,17 +106,27 @@
 		</p>
 		</form>
 		<table>
+			<tr><th>名前</th><th>住所</th><th>電話番号</th><th>学年</th><th>時間割印刷</th></tr>
 			<tr th:each="students : ${students}">
-			<td>名前:</td><td th:text="${students.name}">生徒名前</td>
-			<td>住所:</td><td th:text="${students.address}">生徒住所</td>
-			<td>電話番号:</td><td th:text="${students.phone}">生徒電話番号</td>
-			
-			<td>
-			<form th:action="@{/schedule}" method="post">
-			<input type="submit" name="form" value="時間割印刷"/>
-			<input type="hidden" name="id" th:value="${students.id}"/>
-			</form>
+			<td th:text="${students.name}">生徒名前</td>
+			<td th:text="${students.address}">生徒住所</td>
+			<td th:text="${students.phone}">生徒電話番号</td>
+			<td th:switch="${students.grade_year}">
+			<p th:case = "1" th:text="低学年"></p>
+			<p th:case = "2" th:text="低学年"></p>
+			<p th:case = "3" th:text="中学年"></p>
+			<p th:case = "4" th:text="中学年"></p>
+			<p th:case = "5" th:text="高学年"></p>
+			<p th:case = "6" th:text="高学年"></p>
 			</td>
+			<td><form th:action="@{/schedule}" method="post">
+			<input type="submit" name="form" value="今月"/>
+			<input type="hidden" name="id" th:value="${students.id}"/>
+			</form></td>
+			<td><form th:action="@{/schedule}" method="post">
+			<input type="submit" name="form" value="来月"/>
+			<input type="hidden" name="id" th:value="${students.id}"/>
+			</form></td>
 			</tr>
 		</table>
 	</div>

@@ -1,10 +1,287 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>受講希望科目入力画面</title>
 </head>
 <body>
-
+	<h1>受講入力画面</h1>
+ 	<form th:action="@{/students/edit}" th:object="${studentForm}" method="post">
+	<table>
+		<tr><td>名前:</td><td><input type="text" name="name" th:value="${students.name}" disabled/></td></tr>
+		<tr><td>住所：</td><td><input type="text" name="address" th:value="${students.address}" disabled/></td></tr>
+		<tr><td>電話番号：</td><td><input type="text" name="phone" th:value="${students.phone}" disabled/></td></tr>
+		<tr><td>学年：</td><td th:switch="${students.grade_year}">
+			<p th:case = "1" th:text="低学年"></p>
+			<p th:case = "2" th:text="低学年"></p>
+			<p th:case = "3" th:text="中学年"></p>
+			<p th:case = "4" th:text="中学年"></p>
+			<p th:case = "5" th:text="高学年"></p>
+			<p th:case = "6" th:text="高学年" ></p>
+			</td>
+	</table>
+	<h2><script>
+		var hiduke=new Date();
+		var month = hiduke.getMonth()+2
+		document.write(month);
+	</script>月</h2>
+	</form>
+	<form th:action="@{/students/create_schedule}" method="post">
+	<table>
+		<tr><th></th><th>国語</th><th>算数</th><th>理科</th><th>社会</th><th>英語</th><th>情報</th></tr>
+  		<tr><td>第一周</td>
+  			<td><select name="week">
+  			<option></option>
+			<option value="111">1時間</option>
+			<option value="112">2時間</option>
+			<option value="113">3時間</option>
+			<option value="114">4時間</option>
+			<option value="115">5時間</option>
+			</select></td>
+  			<td><select name="week">
+  			<option></option>
+			<option value="121">1時間</option>
+			<option value="122">2時間</option>
+			<option value="123">3時間</option>
+			<option value="124">4時間</option>
+			<option value="125">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="131">1時間</option>
+			<option value="132">2時間</option>
+			<option value="133">3時間</option>
+			<option value="134">4時間</option>
+			<option value="135">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="141">1時間</option>
+			<option value="142">2時間</option>
+			<option value="143">3時間</option>
+			<option value="144">4時間</option>
+			<option value="145">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="151">1時間</option>
+			<option value="152">2時間</option>
+			<option value="153">3時間</option>
+			<option value="154">4時間</option>
+			<option value="155">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="161">1時間</option>
+			<option value="162">2時間</option>
+			<option value="163">3時間</option>
+			<option value="164">4時間</option>
+			<option value="165">5時間</option>
+			</select></td>
+		</tr>
+  		<tr><td>第二週</td>
+  			<td><select name="week">
+  			<option></option>
+			<option value="211">1時間</option>
+			<option value="212">2時間</option>
+			<option value="213">3時間</option>
+			<option value="214">4時間</option>
+			<option value="215">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="221">1時間</option>
+			<option value="222">2時間</option>
+			<option value="223">3時間</option>
+			<option value="224">4時間</option>
+			<option value="225">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="231">1時間</option>
+			<option value="232">2時間</option>
+			<option value="233">3時間</option>
+			<option value="234">4時間</option>
+			<option value="235">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="241">1時間</option>
+			<option value="242">2時間</option>
+			<option value="243">3時間</option>
+			<option value="244">4時間</option>
+			<option value="245">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="251">1時間</option>
+			<option value="252">2時間</option>
+			<option value="253">3時間</option>
+			<option value="254">4時間</option>
+			<option value="255">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="261">1時間</option>
+			<option value="262">2時間</option>
+			<option value="263">3時間</option>
+			<option value="264">4時間</option>
+			<option value="265">5時間</option>
+			</select></td>
+		</tr>
+  		<tr><td>第三週</td>
+  			<td><select name="week">
+  			<option></option>
+			<option value="311">1時間</option>
+			<option value="312">2時間</option>
+			<option value="313">3時間</option>
+			<option value="314">4時間</option>
+			<option value="315">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="321">1時間</option>
+			<option value="322">2時間</option>
+			<option value="323">3時間</option>
+			<option value="324">4時間</option>
+			<option value="325">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="331">1時間</option>
+			<option value="332">2時間</option>
+			<option value="333">3時間</option>
+			<option value="334">4時間</option>
+			<option value="335">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="341">1時間</option>
+			<option value="342">2時間</option>
+			<option value="343">3時間</option>
+			<option value="344">4時間</option>
+			<option value="345">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="351">1時間</option>
+			<option value="352">2時間</option>
+			<option value="353">3時間</option>
+			<option value="354">4時間</option>
+			<option value="355">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="361">1時間</option>
+			<option value="362">2時間</option>
+			<option value="363">3時間</option>
+			<option value="364">4時間</option>
+			<option value="365">5時間</option>
+			</select></td>
+  		</tr>
+  		<tr><td>第四週</td>
+  			<td><select name="week">
+  			<option></option>
+			<option value="411">1時間</option>
+			<option value="412">2時間</option>
+			<option value="413">3時間</option>
+			<option value="414">4時間</option>
+			<option value="415">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="421">1時間</option>
+			<option value="422">2時間</option>
+			<option value="423">3時間</option>
+			<option value="424">4時間</option>
+			<option value="425">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="431">1時間</option>
+			<option value="432">2時間</option>
+			<option value="433">3時間</option>
+			<option value="434">4時間</option>
+			<option value="435">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="441">1時間</option>
+			<option value="442">2時間</option>
+			<option value="443">3時間</option>
+			<option value="444">4時間</option>
+			<option value="445">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="451">1時間</option>
+			<option value="452">2時間</option>
+			<option value="453">3時間</option>
+			<option value="454">4時間</option>
+			<option value="455">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="461">1時間</option>
+			<option value="462">2時間</option>
+			<option value="463">3時間</option>
+			<option value="464">4時間</option>
+			<option value="465">5時間</option>
+			</select></td>
+		</tr>
+  		<tr><td>第五週</td>
+  			<td><select name="week">
+  			<option></option>
+			<option value="511">1時間</option>
+			<option value="512">2時間</option>
+			<option value="513">3時間</option>
+			<option value="514">4時間</option>
+			<option value="515">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="521">1時間</option>
+			<option value="522">2時間</option>
+			<option value="523">3時間</option>
+			<option value="524">4時間</option>
+			<option value="525">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="531">1時間</option>
+			<option value="532">2時間</option>
+			<option value="533">3時間</option>
+			<option value="534">4時間</option>
+			<option value="535">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="541">1時間</option>
+			<option value="542">2時間</option>
+			<option value="543">3時間</option>
+			<option value="544">4時間</option>
+			<option value="545">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="551">1時間</option>
+			<option value="552">2時間</option>
+			<option value="553">3時間</option>
+			<option value="554">4時間</option>
+			<option value="555">5時間</option>
+			</select></td>
+			<td><select name="week">
+			<option></option>
+			<option value="561">1時間</option>
+			<option value="562">2時間</option>
+			<option value="563">3時間</option>
+			<option value="564">4時間</option>
+			<option value="565">5時間</option>
+			</select></td>
+  		</tr>
+	</table>
+	<input type="submit" name="form" value="決定"/>
+	<input type="hidden" name="id" th:value="${students.id}"/>
+	</form>
 </body>
 </html>
